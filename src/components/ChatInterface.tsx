@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Send, Paperclip, Mic, Square } from "lucide-react";
+import { Send, Paperclip, Mic, TrendingUp, Brain } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface Message {
@@ -46,7 +46,7 @@ export function ChatInterface() {
     setTimeout(() => {
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
-        content: "سلام! من دستیار هوش مصنوعی هوشا هستم. چطور می‌تونم کمکتون کنم؟",
+        content: "سلام! من دستیار هوشمند بورس ایران هستم. می‌تونم برای تحلیل سهام، پیش‌بینی قیمت و مشاوره سرمایه‌گذاری کمکتون کنم. چه سهمی رو می‌خواین تحلیل کنیم؟",
         sender: "assistant",
         timestamp: new Date(),
       };
@@ -71,9 +71,9 @@ export function ChatInterface() {
             <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center">
               <div className="w-8 h-8 rounded-full bg-primary/30 animate-pulse"></div>
             </div>
-            <h2 className="text-lg font-semibold">هوش مصنوعی فارسی</h2>
+            <h2 className="text-lg font-semibold">دستیار هوشمند بورس ایران</h2>
             <p className="text-sm text-muted-foreground">
-              هوشا: ابزارهای هوش مصنوعی فارسی برای تولید محتوا و تحلیل همه در یک‌جا
+              تحلیل هوشمند سهام، پیش‌بینی قیمت و مشاوره سرمایه‌گذاری در بورس تهران
             </p>
           </div>
         </div>
@@ -83,7 +83,7 @@ export function ChatInterface() {
       <div className="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar">
         {messages.length === 0 ? (
           <div className="text-center text-muted-foreground py-8">
-            <p>برای شروع گفتگو، پیام خود را بنویسید</p>
+            <p>سوال خود در مورد بورس و سهام را بپرسید</p>
           </div>
         ) : (
           messages.map((message) => (
@@ -139,18 +139,18 @@ export function ChatInterface() {
       <div className="p-4 border-t border-border">
         <div className="flex flex-wrap gap-2 mb-4">
           <Button variant="outline" size="sm" className="text-xs">
-            <Paperclip className="w-3 h-3 ml-1" />
-            کد بنویس
+            <TrendingUp className="w-3 h-3 ml-1" />
+            تحلیل شاخص کل
           </Button>
           <Button variant="outline" size="sm" className="text-xs">
-            <Square className="w-3 h-3 ml-1" />
-            تحلیل بازار مالی
+            <Brain className="w-3 h-3 ml-1" />
+            پیش‌بینی قیمت پتروشیمی
           </Button>
           <Button variant="outline" size="sm" className="text-xs">
-            🎨 ایده پست سوشال مدیا
+            💰 بهترین سهام امروز
           </Button>
           <Button variant="outline" size="sm" className="text-xs">
-            ⭐ من رو فیگماینده تر کن
+            📊 محاسبه ریسک پرتفوی
           </Button>
         </div>
 
@@ -162,7 +162,7 @@ export function ChatInterface() {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="راجع به چه موضوعی میتونیم کمکتون کنم؟"
+              placeholder="در مورد کدام سهم یا موضوع بورسی سوال دارید؟"
               className="min-h-[60px] max-h-32 border-0 bg-transparent resize-none pr-12 pl-4 py-4 focus-visible:ring-0"
               disabled={isLoading}
             />

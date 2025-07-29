@@ -20,6 +20,7 @@ export default {
 		extend: {
 			fontFamily: {
 				vazir: ['Vazir', 'Arial', 'sans-serif'],
+				shabnam: ['Shabnam', 'Vazir', 'Arial', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

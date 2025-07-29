@@ -46,43 +46,39 @@ import { cn } from "@/lib/utils";
 
 const menuItems = [
   {
-    title: "مدل ها - AI",
+    title: "تحلیل‌های هوشمند",
     items: [
-      { title: "هوش مصنوعی پیشرفته", icon: Brain, path: "/models/master-mind" },
-      { title: "ChatGPT 4.1", icon: Bot, path: "/models/chatgpt-4o" },
-      { title: "جستجوی وب هوشمند", icon: Search, path: "/models/perplexity" },
+      { title: "تحلیل تکنیکال سهام", icon: TrendingUp, path: "/analysis/technical" },
+      { title: "پیش‌بینی قیمت", icon: Brain, path: "/analysis/prediction" },
+      { title: "تشخیص الگوی نمودار", icon: Search, path: "/analysis/pattern" },
     ],
   },
   {
-    title: "تولید محتوا و عکس",
+    title: "اطلاعات بازار",
     items: [
-      { title: "تولید عکس", icon: Camera, path: "/image/generate" },
-      { title: "دستیار سوشال مدیا", icon: Share2, path: "/content/social-analyst" },
-      { title: "مقاله و سئو سایت", icon: FileText, path: "/content/essay" },
+      { title: "گزارش روزانه بورس", icon: FileText, path: "/market/daily" },
+      { title: "تحلیل شاخص کل", icon: TrendingUp, path: "/market/index" },
+      { title: "بهترین سهام امروز", icon: Bot, path: "/market/top-stocks" },
     ],
   },
   {
-    title: "دستیار ها",
+    title: "دستیار سرمایه‌گذاری",
     items: [
-      { title: "مترجم", icon: MessageSquare, path: "/assistants/translator" },
-      { title: "مشاور مسافرتی", icon: Plane, path: "/assistants/travel-agent" },
-      { title: "آشپز", icon: ChefHat, path: "/assistants/cooking" },
-      { title: "کارشناس تکنولوژی", icon: Bot, path: "/assistants/tech-expert" },
-      { title: "پزشک", icon: Stethoscope, path: "/assistants/doctor" },
-      { title: "معلم", icon: GraduationCap, path: "/assistants/teacher" },
-      { title: "مربی باشگاه", icon: Dumbbell, path: "/assistants/fitness-coach" },
-      { title: "کارشناس کد‌نویسی", icon: Code, path: "/assistants/code-expert" },
+      { title: "مشاور پرتفوی", icon: User, path: "/advisor/portfolio" },
+      { title: "محاسبه ریسک", icon: Calculator, path: "/advisor/risk" },
+      { title: "استراتژی معاملاتی", icon: Brain, path: "/advisor/strategy" },
+      { title: "آموزش بورس", icon: GraduationCap, path: "/advisor/education" },
+      { title: "اخبار مالی", icon: FileText, path: "/advisor/news" },
     ],
   },
   {
-    title: "ابزار ها",
+    title: "ابزارهای تحلیل",
     items: [
-      { title: "ایده های بیزنس", icon: Lightbulb, path: "/tools/business-ideas" },
-      { title: "تحلیل بازار فارکس و کریپتو", icon: TrendingUp, path: "/tools/trading" },
-      { title: "دراپشیپینگ", icon: CreditCard, path: "/tools/drop-shipping" },
-      { title: "حل ریاضیات", icon: Calculator, path: "/tools/math" },
-      { title: "برنامه غذایی و رژیم", icon: Utensils, path: "/tools/healthy-diet" },
-      { title: "تولید موسیقی", icon: Music, path: "/tools/generate-music" },
+      { title: "محاسبه سود و زیان", icon: Calculator, path: "/tools/pnl" },
+      { title: "تحلیل بنیادی", icon: Search, path: "/tools/fundamental" },
+      { title: "مقایسه سهام", icon: TrendingUp, path: "/tools/compare" },
+      { title: "کندل استیک", icon: Bot, path: "/tools/candlestick" },
+      { title: "حجم معاملات", icon: FileText, path: "/tools/volume" },
     ],
   },
 ];
@@ -91,10 +87,10 @@ export function HooshaSidebar() {
   const { state } = useSidebar();
   const collapsed = state === "collapsed";
   const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({
-    "مدل ها - AI": true,
-    "تولید محتوا و عکس": false,
-    "دستیار ها": false,
-    "ابزار ها": false,
+    "تحلیل‌های هوشمند": true,
+    "اطلاعات بازار": false,
+    "دستیار سرمایه‌گذاری": false,
+    "ابزارهای تحلیل": false,
   });
 
   const toggleGroup = (groupTitle: string) => {

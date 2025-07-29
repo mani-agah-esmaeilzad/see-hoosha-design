@@ -2,6 +2,7 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { HooshaSidebar } from "@/components/HooshaSidebar";
 import { ChatInterface } from "@/components/ChatInterface";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { TutorialDialog } from "@/components/TutorialDialog";
 import { Button } from "@/components/ui/button";
 import { User, Menu } from "lucide-react";
 
@@ -15,20 +16,22 @@ const Index = () => {
             {/* Right side - Logo */}
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-2">
-                <div className="text-xl font-bold text-primary">هوشا</div>
+                <div className="text-xl font-bold text-primary">بورس هوشمند</div>
                 <div className="text-xs text-muted-foreground bg-primary/10 px-2 py-1 rounded">
-                  HOOSHA
+                  SMART EXCHANGE
                 </div>
               </div>
             </div>
             
-            {/* Left side - User menu & Theme */}
+            {/* Left side - Tutorial, User menu & Theme */}
             <div className="flex items-center gap-2">
+              <TutorialDialog />
               <ThemeToggle />
               <Button variant="ghost" size="icon" className="h-9 w-9">
                 <User className="h-4 w-4" />
               </Button>
-              <SidebarTrigger className="lg:hidden">
+              {/* Sidebar Toggle for Desktop */}
+              <SidebarTrigger className="h-9 w-9">
                 <Menu className="h-4 w-4" />
               </SidebarTrigger>
             </div>
