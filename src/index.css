@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Vazir font directly */
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css');
+
 /* Hoosha.com inspired design system - Persian/Farsi UI
 All colors MUST be HSL.
 */
@@ -123,7 +126,7 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-shabnam;
+    @apply bg-background text-foreground font-sans;
     direction: rtl;
   }
   
