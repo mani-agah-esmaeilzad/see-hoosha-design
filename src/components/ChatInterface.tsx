@@ -39,21 +39,49 @@ export function ChatInterface() {
     };
 
     setMessages(prev => [...prev, userMessage]);
+    const currentInputValue = inputValue;
     setInputValue("");
     setIsLoading(true);
 
-    // Simulate API call
-    setTimeout(() => {
+    // --- شروع تغییرات: اتصال به بک‌اند FastAPI ---
+    try {
+      const response = await fetch("http://127.0.0.1:8000/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message: currentInputValue }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`خطای سرور: ${response.status}`);
+      }
+
+      const data = await response.json();
+
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
-        content: "سلام! من دستیار هوشمند بورس ایران هستم. می‌تونم برای تحلیل سهام، پیش‌بینی قیمت و مشاوره سرمایه‌گذاری کمکتون کنم. چه سهمی رو می‌خواین تحلیل کنیم؟",
+        content: data.response, // دریافت پاسخ از ایجنت
         sender: "assistant",
         timestamp: new Date(),
       };
       setMessages(prev => [...prev, assistantMessage]);
+
+    } catch (error) {
+      console.error("خطا در ارتباط با سرور:", error);
+      const errorMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        content: "متاسفانه در ارتباط با سرور مشکلی پیش آمده است. لطفاً دوباره تلاش کنید.",
+        sender: "assistant",
+        timestamp: new Date(),
+      };
+      setMessages(prev => [...prev, errorMessage]);
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
+    // --- پایان تغییرات ---
   };
+
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -191,7 +219,7 @@ export function ChatInterface() {
                 size="icon"
                 className="h-8 w-8"
                 disabled={!inputValue.trim() || isLoading}
-              >
+                >
                 <Send className="h-4 w-4" />
               </Button>
             </div>
