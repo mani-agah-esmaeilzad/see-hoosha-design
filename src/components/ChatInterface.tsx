@@ -43,7 +43,6 @@ export function ChatInterface() {
     setInputValue("");
     setIsLoading(true);
 
-    // --- شروع تغییرات: اتصال به بک‌اند FastAPI ---
     try {
       const response = await fetch("http://127.0.0.1:8000/chat", {
         method: "POST",
@@ -61,7 +60,7 @@ export function ChatInterface() {
 
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
-        content: data.response, // دریافت پاسخ از ایجنت
+        content: data.response,
         sender: "assistant",
         timestamp: new Date(),
       };
@@ -79,7 +78,6 @@ export function ChatInterface() {
     } finally {
       setIsLoading(false);
     }
-    // --- پایان تغییرات ---
   };
 
 
@@ -144,7 +142,7 @@ export function ChatInterface() {
             </div>
           ))
         )}
-        
+
         {isLoading && (
           <div className="flex gap-3">
             <Avatar className="w-8 h-8 mt-1">
@@ -159,7 +157,7 @@ export function ChatInterface() {
             </div>
           </div>
         )}
-        
+
         <div ref={messagesEndRef} />
       </div>
 
@@ -194,7 +192,7 @@ export function ChatInterface() {
               className="min-h-[60px] max-h-32 border-0 bg-transparent resize-none pr-12 pl-4 py-4 focus-visible:ring-0"
               disabled={isLoading}
             />
-            
+
             <div className="absolute left-2 bottom-2 flex gap-1">
               <Button
                 type="button"
@@ -204,7 +202,7 @@ export function ChatInterface() {
               >
                 <Paperclip className="h-4 w-4" />
               </Button>
-              
+
               <Button
                 type="button"
                 variant="ghost"
@@ -213,13 +211,13 @@ export function ChatInterface() {
               >
                 <Mic className="h-4 w-4" />
               </Button>
-              
+
               <Button
                 type="submit"
                 size="icon"
                 className="h-8 w-8"
                 disabled={!inputValue.trim() || isLoading}
-                >
+              >
                 <Send className="h-4 w-4" />
               </Button>
             </div>

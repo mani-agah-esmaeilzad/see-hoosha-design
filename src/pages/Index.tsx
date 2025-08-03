@@ -13,7 +13,7 @@ const Index = () => {
         {/* Header */}
         <div className="fixed top-0 left-0 right-0 z-50 h-14 bg-background/95 backdrop-blur-sm border-b border-border">
           <div className="flex items-center justify-between h-full px-4">
-            {/* Right side - Logo */}
+            
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-2">
                 <div className="text-xl font-bold text-primary">بورس هوشمند</div>
@@ -23,14 +23,14 @@ const Index = () => {
               </div>
             </div>
             
-            {/* Left side - Tutorial, User menu & Theme */}
+            
             <div className="flex items-center gap-2">
               <TutorialDialog />
               <ThemeToggle />
               <Button variant="ghost" size="icon" className="h-9 w-9">
                 <User className="h-4 w-4" />
               </Button>
-              {/* Sidebar Toggle for Desktop */}
+
               <SidebarTrigger className="h-9 w-9">
                 <Menu className="h-4 w-4" />
               </SidebarTrigger>
@@ -38,12 +38,10 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Main Content */}
         <main className="flex-1 pt-14">
           <ChatInterface />
         </main>
 
-        {/* Sidebar */}
         <HooshaSidebar />
       </div>
     </SidebarProvider>

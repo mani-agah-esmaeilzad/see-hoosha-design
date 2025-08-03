@@ -105,7 +105,7 @@ export function HooshaSidebar() {
       <SidebarContent className="p-4">
         {/* New Chat Button */}
         <div className="mb-6">
-          <Button 
+          <Button
             className={cn(
               "bg-primary text-primary-foreground hover:bg-primary/90",
               collapsed ? "h-10 w-10 p-0" : "w-full justify-start gap-3"
@@ -130,8 +130,8 @@ export function HooshaSidebar() {
         <div className="space-y-2">
           {menuItems.map((group) => (
             <SidebarGroup key={group.title}>
-              <Collapsible 
-                open={openGroups[group.title]} 
+              <Collapsible
+                open={openGroups[group.title]}
                 onOpenChange={() => toggleGroup(group.title)}
               >
                 <CollapsibleTrigger asChild>
@@ -145,7 +145,7 @@ export function HooshaSidebar() {
                     )}
                   </SidebarGroupLabel>
                 </CollapsibleTrigger>
-                
+
                 <CollapsibleContent>
                   <SidebarGroupContent>
                     <SidebarMenu>
@@ -173,7 +173,7 @@ export function HooshaSidebar() {
         {/* Bottom Menu */}
         <div className="mt-auto pt-6 border-t border-border">
           <div className="space-y-2">
-            <SidebarMenuButton 
+            <SidebarMenuButton
               className={cn(
                 "hover:bg-sidebar-hover",
                 collapsed ? "h-10 w-10 p-0 justify-center" : "w-full justify-start gap-3"
@@ -182,8 +182,8 @@ export function HooshaSidebar() {
               <Settings className="h-4 w-4" />
               {!collapsed && "تنظیمات"}
             </SidebarMenuButton>
-            
-            <SidebarMenuButton 
+
+            <SidebarMenuButton
               className={cn(
                 "hover:bg-sidebar-hover",
                 collapsed ? "h-10 w-10 p-0 justify-center" : "w-full justify-start gap-3"
@@ -192,8 +192,8 @@ export function HooshaSidebar() {
               <BookOpen className="h-4 w-4" />
               {!collapsed && "آموزش و مقالات"}
             </SidebarMenuButton>
-            
-            <SidebarMenuButton 
+
+            <SidebarMenuButton
               className={cn(
                 "hover:bg-sidebar-hover",
                 collapsed ? "h-10 w-10 p-0 justify-center" : "w-full justify-start gap-3"
